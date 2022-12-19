@@ -18,33 +18,7 @@ h3 {
   padding-bottom: 0.5cm;
 }
 
-h4 {
-  font-size: large;
-  padding-top: 0.5cm;
-}
-
-br {
-  line-height: 0.5cm;
-}
-
 /* 2. Shared */
-
-.wallpaper,
-.picture-shadow
-{
-  display: block;
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-.button {
-  font-family: "Montserrat", "Quicksand", sans-serif;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
 .button,
 .social,
 a {
@@ -83,12 +57,10 @@ a {
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.timespan {
-  grid-column: span 1;
-  font-size: 16px;
-  text-align: right;
-  padding-right: 5px;
-  color: rgb(133, 133, 133);
+.content {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
 }
 
 .content-second-page {
@@ -98,18 +70,18 @@ a {
   max-width: 1000px;
 }
 
-.wallpaper {
+.wallpaper
+{
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
   background-image: url("../images/hubble.jpg");
   background-position: center;
   background-size: cover;
   opacity: 0.2;
   position: absolute;
-}
-
-.content {
-  display: flex;
-  position: relative;
-  min-height: 100vh;
 }
 
 .side {
@@ -125,18 +97,6 @@ a {
   padding-top: 100%;
   position: relative;
   width: 100%;
-}
-
-.picture-shadow {
-  border-radius: 23091995px;
-  background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
-  position: absolute;
-  top: 10%;
-}
-
-.picture-image {
-  border-radius: 290486px;
-  position: absolute;
 }
 
 .name {
@@ -167,6 +127,9 @@ a {
 }
 
 .button {
+  font-family: "Montserrat", "Quicksand", sans-serif;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
   background-color: #fff;
   border-radius: 230995px;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
