@@ -1,0 +1,98 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if include.homepage %}
+  <title>Daniele De Gregorio | Systems Engineer &amp; Physicist</title>
+  <meta name="description" content="Systems Engineer at KLA specializing in electron-beam metrology at nanometer scale. Physicist with expertise in nanophotonics, machine learning for inverse design, and experimental particle physics. LMU Munich graduate and ACS Photonics author.">
+  <meta name="keywords" content="Daniele De Gregorio, KLA, systems engineer, semiconductor metrology, electron beam metrology, nanophotonics, metalenses, inverse design, ACS Photonics, particle physics, Munich physicist">
+  <meta name="author" content="Daniele De Gregorio">
+  <meta property="og:title" content="Daniele De Gregorio | Systems Engineer &amp; Physicist at KLA">
+  <meta property="og:description" content="Systems Engineer at KLA. Electron-beam metrology expert with deep expertise in nanophotonics, machine learning for inverse design, and experimental particle physics. LMU Munich graduate and ACS Photonics author.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://masterdanny.github.io">
+  <meta property="og:image" content="{{ '/images/profile.jpg' | relative_url }}">
+  <!-- Recommended: Replace with custom 1200×630 social preview image (see deployment instructions) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daniele De Gregorio | Systems Engineer &amp; Physicist">
+  <meta name="twitter:description" content="Systems Engineer at KLA | Electron-beam metrology &amp; nanophotonics | LMU Munich &amp; ACS Photonics">
+  <link rel="canonical" href="https://masterdanny.github.io">
+  {% else %}
+  {% seo %}
+  {% endif %}
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2314b8a6'/%3E%3Cstop offset='100%25' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='system-ui, sans-serif' font-size='13' font-weight='700' fill='%23f1f5f9'%3EDD%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+  {% feed_meta %}
+  <!-- DEPLOYMENT INSTRUCTIONS (keep this comment):
+       1. (Optional) Generate professional 1-2 page CV (Canva, Word, LaTeX, Google Docs → Export PDF).
+       2. Name it exactly "Daniele_De_Gregorio_CV.pdf" and place in repo root.
+          Note: Download CV buttons are currently removed from the UI (easy to re-add later).
+       3. (Optional) Replace images/profile.jpg with updated headshot (square, ~1000px, face-centered).
+       4. **Create a custom social preview image** (strongly recommended for professional sharing):
+          - Exact size: 1200 × 630 px (PNG or JPG)
+          - Recommended content: Clean, minimal card with:
+            - Your name (large)
+            - "Systems Engineer @ KLA | Physicist"
+            - 2-3 key highlights (e.g. "nm-scale e-beam metrology", "ML for nanophotonics", "ACS Photonics author")
+            - Subtle dark or light background that matches the site aesthetic
+          - Save as `images/social-preview.jpg`
+          - Update the `og:image` and Twitter image meta tags below
+       5. git add index.html Daniele_De_Gregorio_CV.pdf images/profile.jpg images/social-preview.jpg
+       6. Commit + push to main. GitHub Pages auto-deploys (Settings → Pages → Source: main / root).
+       7. Hard-refresh https://masterdanny.github.io after ~60s.
+       Safe to delete css/, js/, and old images (hubble.jpg, austria.jpeg, msc.png) after verification.
+       Update social links in footer if GitHub or X handle changes.
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Analytics (Privacy-friendly) -->
+  <!--
+    Recommended: Plausible (https://plausible.io)
+    - No cookies, GDPR compliant, very lightweight (~1KB)
+    - Add your domain in Plausible dashboard, then uncomment the script below.
+  -->
+  <!--
+  <script defer data-domain="masterdanny.github.io" src="https://plausible.io/js/script.js"></script>
+  -->
+
+  {% if include.homepage %}
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniele De Gregorio",
+    "jobTitle": "Systems Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "KLA"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "LMU Munich"
+    },
+    "description": "Systems Engineer at KLA specializing in electron-beam metrology. Physicist with expertise in nanophotonics and machine learning for inverse design.",
+    "url": "https://masterdanny.github.io",
+    "sameAs": [
+      "https://github.com/masterdanny",
+      "https://twitter.com/mrdegreg"
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        var light = t === 'light' || (!t && window.matchMedia('(prefers-color-scheme: light)').matches);
+        document.documentElement.classList.toggle('light', light);
+        document.documentElement.classList.toggle('dark', !light);
+      } catch (e) {}
+    })();
+  </script>
+
+  {% include styles.html %}
+  {% unless include.homepage %}
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  {% endunless %}
+</head>

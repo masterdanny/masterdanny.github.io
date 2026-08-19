@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="max-w-3xl mx-auto px-5 sm:px-6 pt-12 pb-16 md:pt-16 md:pb-24">
+  <p class="mb-8">
+    <a href="{{ '/blog/' | relative_url }}" class="blog-back text-sm font-medium">← All posts</a>
+  </p>
+
+  <header class="mb-10 md:mb-12">
+    <time class="block text-[11px] tracking-[1.5px] uppercase font-semibold text-teal-400 mb-3" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time>
+    <h1 class="font-display section-title text-3xl sm:text-4xl md:text-[2.5rem] font-semibold tracking-tight mb-4">{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="text-slate-400 text-[15.5px] leading-relaxed max-w-2xl">{{ page.description }}</p>
+    {% endif %}
+    {% if page.tags %}
+    <ul class="mt-5 flex flex-wrap gap-2 list-none p-0">
+      {% for tag in page.tags %}
+      <li class="skill-pill text-[11px] tracking-wide uppercase px-2.5 py-1 rounded-full border">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

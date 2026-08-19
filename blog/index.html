@@ -1,0 +1,27 @@
+---
+layout: default
+title: Blog
+description: Notes on systems engineering, electron-beam metrology, and nanophotonics.
+permalink: /blog/
+---
+<section class="max-w-3xl mx-auto px-5 sm:px-6 pt-12 pb-16 md:pt-20 md:pb-24">
+  <p class="text-[10px] md:text-xs tracking-[2px] font-semibold text-teal-400 uppercase mb-3">Lab notebook</p>
+  <h1 class="section-title font-semibold tracking-tight mb-3">Blog</h1>
+  <p class="text-slate-400 text-[15.5px] leading-relaxed max-w-2xl mb-12">
+    Short notes on precision systems, metrology, and the physics underneath them.
+  </p>
+
+  <ol class="space-y-6">
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}" class="blog-card premium-card block rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-5 md:px-6 md:py-6">
+        <time class="block text-[11px] tracking-[1.5px] uppercase font-semibold text-teal-400 mb-2" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+        <h2 class="text-lg md:text-xl font-semibold tracking-tight mb-2">{{ post.title }}</h2>
+        {% if post.description %}
+        <p class="text-slate-400 text-[14.8px] leading-relaxed">{{ post.description }}</p>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

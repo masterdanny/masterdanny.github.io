@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body class="antialiased selection:bg-teal-400/30">
+  {% include nav.html %}
+  <main class="pt-16 min-h-[70vh]">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  {% include scripts.html %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+title: Daniele De Gregorio
+tagline: Systems Engineer & Physicist
+description: >-
+  Systems Engineer at KLA specializing in electron-beam metrology at nanometer scale.
+  Physicist with expertise in nanophotonics, machine learning for inverse design,
+  and experimental particle physics.
+author: Daniele De Gregorio
+url: https://masterdanny.github.io
+baseurl: ""
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Daniele De Gregorio
+
+exclude:
+  - setup-worktrees.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .bundle
+  - .git
+  - .github

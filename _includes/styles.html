@@ -1,0 +1,705 @@
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    :root {
+      --accent: #14b8a6;
+      --accent-2: #22d3ee;
+    }
+
+    /* ============================================
+       DESIGN TOKENS + LIGHT MODE
+       ============================================ */
+
+    :root {
+      /* Dark mode (default) */
+      --bg: #020617;
+      --bg-elevated: #0f172a;
+      --bg-card: #111827;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --accent: #14b8a6;
+    }
+
+    html.light {
+      /* Light mode */
+      --bg: #f8fafc;
+      --bg-elevated: #f1f5f9;
+      --bg-card: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --accent: #0d9488;
+      --text-primary: #0f172a;   /* ensure section titles etc. are dark and visible */
+      --text-secondary: #475569;
+    }
+
+    /* Apply tokens */
+    body {
+      background-color: var(--bg) !important;
+      color: var(--text);
+    }
+
+    /* Force any remaining Tailwind slate-950 backgrounds to respect the theme variable */
+    .bg-slate-950 {
+      background-color: var(--bg) !important;
+    }
+
+    .premium-card,
+    .work-card,
+    .bg-slate-900,
+    .bg-slate-900\/60,
+    .bg-slate-900\/50,
+    .bg-slate-900\/70 {
+      background-color: var(--bg-card);
+      border-color: var(--border);
+    }
+
+    .text-slate-400,
+    .text-slate-300,
+    .text-slate-500 {
+      color: var(--text-muted);
+    }
+
+    .text-slate-400,
+    .text-slate-300,
+    .text-slate-500 {
+      color: var(--text-muted);
+    }
+
+    .border-slate-700,
+    .border-slate-800 {
+      border-color: var(--border);
+    }
+
+    .bg-slate-800 {
+      background-color: color-mix(in srgb, var(--bg-elevated) 100%, transparent);
+    }
+
+    .skill-pill {
+      background-color: color-mix(in srgb, var(--bg-elevated) 100%, transparent);
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+
+    .work-card .bg-slate-800 {
+      background-color: color-mix(in srgb, var(--bg-elevated) 100%, transparent);
+    }
+
+    .glass {
+      background: color-mix(in srgb, var(--bg-elevated) 85%, transparent);
+    }
+
+    /* Smooth theme transitions for premium feel */
+    html,
+    body,
+    .premium-card,
+    .glass,
+    .nav-link,
+    button,
+    a:not(.work-card),
+    footer,
+    header,
+    section {
+      transition: 
+        background-color 0.08s ease,
+        color 0.08s ease,
+        border-color 0.08s ease,
+        box-shadow 0.08s ease;
+    }
+    /* Old light-mode overrides have been migrated to the root variables above.
+       Keeping this block minimal to avoid conflicts. */
+
+    /* Glass / Nav */
+    html.light .glass {
+      background: rgba(248, 250, 252, 0.95);
+      border-color: #e2e8f0;
+    }
+
+    /* All major cards and dark section backgrounds */
+    html.light .premium-card,
+    html.light .work-card,
+    html.light .bg-slate-900,
+    html.light .bg-slate-900\/60,
+    html.light .bg-slate-900\/50,
+    html.light .bg-slate-900\/70 {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border) !important;
+    }
+
+    /* Text color resets for common dark classes */
+    html.light .text-slate-200,
+    html.light .text-slate-300,
+    html.light .text-slate-400,
+    html.light .text-slate-500 {
+      color: var(--text-secondary) !important;
+    }
+
+    html.light .border-slate-700,
+    html.light .border-slate-800 {
+      border-color: var(--border) !important;
+    }
+
+    /* Section labels (e.g. "ARTIFACTS & OUTPUT", "ACADEMIC FOUNDATION", "EXPERTISE") */
+    html.light .uppercase.tracking-\[2px\].text-xs.font-semibold.text-teal-400 {
+      color: #0d9488 !important; /* nice readable teal */
+    }
+
+    /* Main section titles */
+    html.light .section-title {
+      color: var(--text-primary) !important;
+    }
+
+    /* Publications / Work cards - more premium treatment */
+    .work-card {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                  box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                  border-color 0.2s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      border-color: #475569;
+    }
+
+    html.light .work-card {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+
+    html.light .work-card .bg-slate-800 {
+      background-color: #f1f5f9 !important;
+      color: #334155 !important;
+    }
+
+    html.light .work-card .text-teal-400,
+    html.light .work-card .text-teal-300 {
+      color: #0d9488 !important;
+    }
+
+    html.light .work-card:hover {
+      border-color: #94a3b8 !important;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+    }
+
+    /* Education cards */
+    html.light .text-teal-300 {
+      color: #0d9488 !important;
+    }
+
+    /* Skills pills */
+    html.light .skill-pill {
+      background-color: #f1f5f9 !important;
+      color: #334155 !important;
+      border-color: #cbd5e1 !important;
+    }
+    html.light .skill-pill:hover {
+      background-color: #e0f2fe !important;
+    }
+
+    /* Skills icon containers */
+    html.light .bg-teal-400\/10,
+    html.light .bg-cyan-400\/10,
+    html.light .bg-amber-400\/10,
+    html.light .bg-violet-400\/10 {
+      background-color: #e0f2fe !important;
+    }
+
+    /* Keep accent icons visible */
+    html.light .text-teal-400,
+    html.light .text-cyan-400,
+    html.light .text-amber-400,
+    html.light .text-violet-400 {
+      color: #0d9488 !important;
+    }
+
+    /* LMU logos */
+    html.light .lmu-logo {
+      filter: brightness(0) invert(0);
+      opacity: 0.7;
+    }
+
+    /* Contact section buttons - Premium consistency in light mode */
+    html.light #contact a[href^="mailto"]:hover {
+      background-color: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    html.light #contact button {
+      border-color: #cbd5e1;
+      color: var(--text-secondary);
+    }
+    html.light #contact button:hover {
+      background-color: #f1f5f9;
+      border-color: #64748b;
+      color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+      color: var(--text-muted);
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      background-color: var(--bg-elevated);
+      border-color: var(--border);
+    }
+
+    #mobile-menu a,
+    #mobile-menu button {
+      color: var(--text-muted);
+    }
+
+    #mobile-menu a:hover,
+    #mobile-menu a:active,
+    #mobile-menu button:hover,
+    #mobile-menu button:active {
+      background-color: var(--bg-card);
+      color: var(--text);
+    }
+
+    /* Mobile menu extra polish */
+    @media (max-width: 768px) {
+      #mobile-menu a {
+        font-size: 15.5px;
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+      }
+      #mobile-menu button {
+        min-height: 50px;
+      }
+    }
+
+    /* Mobile menu light mode fixes (active states + text were dark-only) */
+    html.light #mobile-menu {
+      background-color: var(--bg-elevated);
+      border-color: var(--border);
+    }
+    html.light #mobile-menu a,
+    html.light #mobile-menu button {
+      color: var(--text-muted);
+    }
+    html.light #mobile-menu a:hover,
+    html.light #mobile-menu a:active,
+    html.light #mobile-menu button:hover,
+    html.light #mobile-menu button:active {
+      background-color: var(--bg-card);
+      color: var(--text);
+    }
+
+    /* Hamburger button light mode */
+    html.light #mobile-menu-btn {
+      color: #64748b;
+    }
+    html.light #mobile-menu-btn:hover,
+    html.light #mobile-menu-btn:active {
+      color: #0f172a;
+      background-color: #f1f5f9;
+    }
+
+    /* Mobile menu CTA (the "Get in touch" button inside the mobile overlay) */
+    html.light #mobile-menu .mobile-menu-cta {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    html.light #mobile-menu .mobile-menu-cta:hover,
+    html.light #mobile-menu .mobile-menu-cta:active {
+      background-color: #e0f2fe !important;
+      border-color: #94a3b8 !important;
+    }
+
+    /* Social icons in Contact - better light mode animation */
+    html.light #contact .mt-10 a {
+      color: #94a3b8; /* lighter gray in light mode so hover to near-black is more dramatic */
+    }
+
+    html.light #contact .mt-10 a i {
+      color: inherit;
+    }
+
+    html.light #contact .mt-10 a:hover {
+      color: #020617 !important; /* very dark slate — strong contrast change in light mode (analogous to white in dark mode) */
+    }
+
+    html.light #contact .mt-10 a i:hover {
+      color: #020617 !important;
+    }
+
+    /* Nav links */
+    html.light .nav-link {
+      color: #475569;
+    }
+    html.light .nav-link:hover {
+      color: #0f172a;
+    }
+
+    /* Theme toggle buttons */
+    html.light #theme-toggle,
+    html.light #theme-toggle-mobile {
+      border-color: #cbd5e1;
+      color: #64748b;
+    }
+    html.light #theme-toggle:hover,
+    html.light #theme-toggle-mobile:hover,
+    html.light #theme-toggle-mobile:active {
+      border-color: #94a3b8;
+      color: #0f172a;
+    }
+
+    /* Hero background in light mode - very restrained */
+    html.light .subtle-grid {
+      background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.012) 1px, transparent 1px);
+      opacity: 0.35;
+    }
+
+    html.light header .absolute.bg-\[radial-gradient\(\#1e2937_0\.8px,transparent_1px\)\] {
+      background-image: radial-gradient(#e2e8f0 0.8px, transparent 1px);
+      opacity: 0.18;
+    }
+
+    /* Hero location badge */
+    header .inline-flex.items-center.gap-x-2.rounded-full {
+      background-color: color-mix(in srgb, var(--bg-elevated) 70%, transparent);
+      border-color: var(--border);
+      color: var(--accent);
+    }
+
+    /* Improve readability of hero text in light mode */
+    html.light header .max-w-2xl h1,
+    html.light header .max-w-2xl p {
+      color: #1e2937;
+    }
+
+    html.light header .max-w-2xl p.text-slate-400 {
+      color: #475569;
+    }
+
+    /* Hero status badge light mode */
+    html.light .hero-status-badge {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+
+    /* Keep KLA logo container dark in light mode for contrast (like LMU logo treatment) */
+    html.light .kla-logo-container {
+      background-color: #0f172a !important;
+      border-color: #334155 !important;
+    }
+
+    /* Soft panel behind hero text so it separates from the grid in both themes */
+    header .md\:col-span-7 {
+      position: relative;
+    }
+
+    header .md\:col-span-7::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      right: -28px;
+      top: -24px;
+      bottom: -24px;
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(51, 65, 85, 0.75);
+      border-radius: 24px;
+      z-index: -1;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.55);
+    }
+
+    html.light header .md\:col-span-7::before {
+      background: rgba(255, 255, 255, 0.6);
+      border-color: transparent;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+    }
+
+    /* Premium card hover states */
+    .premium-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      border-color: #475569;
+    }
+
+    html.light .premium-card:hover {
+      border-color: #94a3b8;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    .font-display {
+      font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+      font-feature-settings: "ss02";
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+    }
+
+    .lmu-logo {
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.15s ease;
+    }
+    
+    .nav-link.active::after,
+    .nav-link:hover::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, #14b8a6, #22d3ee);
+    }
+
+    .nav-link.active {
+      color: #f1f5f9;
+    }
+
+    .premium-card {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                  box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
+                  border-color 0.2s ease;
+    }
+    
+    .premium-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      border-color: #334155;
+    }
+
+    .timeline-line {
+      background: linear-gradient(to bottom, #14b8a6 0%, #0f766e 100%);
+    }
+
+    .skill-pill {
+      transition: all 0.15s ease;
+    }
+
+    .skill-pill:hover {
+      background-color: #1e2937;
+      transform: translateY(-1px);
+    }
+
+    .accent-glow {
+      box-shadow: 0 0 0 1px rgba(20, 184, 166, 0.1);
+    }
+
+    .stat {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .subtle-grid {
+      background-image: 
+        linear-gradient(rgba(148, 163, 184, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.4;
+    }
+
+    /* ============================================
+       AGGRESSIVE MOBILE OPTIMIZATION
+       ============================================ */
+    @media (max-width: 768px) {
+      /* Backgrounds — further reduce visual noise on small screens */
+      .subtle-grid {
+        opacity: 0.18;
+        background-size: 18px 18px;
+      }
+      header .absolute.bg-\[radial-gradient\(\#1e2937_0\.8px,transparent_1px\)\] {
+        opacity: 0.28 !important;
+      }
+
+      /* Typography */
+      .section-title {
+        font-size: 1.45rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      /* Hero specific (extra safety beyond responsive classes) */
+      header h1 {
+        font-size: 2.55rem !important;
+        letter-spacing: -2.1px !important;
+      }
+      header .max-w-md {
+        max-width: 100%;
+      }
+
+      /* Cards — tighter premium density */
+      .premium-card {
+        padding: 1.05rem !important; /* ~16-17px */
+        border-radius: 1.25rem;
+      }
+      .work-card {
+        padding: 1.1rem !important;
+        border-radius: 1rem;
+      }
+      .work-card h4 {
+        font-size: 0.95rem;
+        line-height: 1.25;
+      }
+
+      /* Education cards inner content */
+      .premium-card .text-\[14\.7px\] {
+        font-size: 14.2px;
+      }
+
+      /* Skill pills — more compact */
+      .skill-pill {
+        font-size: 0.68rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+      }
+
+      /* Reduce hover lift on touch devices (less jarring) */
+      .premium-card:hover,
+      .work-card:hover {
+        transform: translateY(-1px);
+      }
+
+      /* About text breathing */
+      #about .text-\[15\.2px\] {
+        font-size: 14.4px;
+        line-height: 1.55;
+      }
+
+      /* Experience list */
+      #experience li {
+        font-size: 0.89rem;
+      }
+
+      /* Hero text backdrop — smaller on mobile */
+      header .md\:col-span-7::before {
+        left: -16px;
+        right: -16px;
+        top: -14px;
+        bottom: -14px;
+        border-radius: 18px;
+      }
+
+      html.light header .md\:col-span-7::before {
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      /* Contact buttons — ensure full width + good thumb targets */
+      #contact .flex-col > a,
+      #contact .flex-col > button {
+        width: 100%;
+      }
+
+      /* Light mode mobile refinements */
+      html.light .premium-card,
+      html.light .work-card {
+        box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+      }
+      html.light .nav-link {
+        color: #475569;
+      }
+
+      /* Skill icons slightly smaller on mobile for better proportion */
+      .premium-card .w-8.h-8,
+      .premium-card .w-9.h-9 {
+        width: 2rem;
+        height: 2rem;
+      }
+      .premium-card .w-8.h-8 i,
+      .premium-card .w-9.h-9 i {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Ultra-small phones (iPhone SE, older Android, etc.) */
+    @media (max-width: 380px) {
+      .section-title {
+        font-size: 1.32rem;
+      }
+      header h1 {
+        font-size: 2.35rem !important;
+        letter-spacing: -1.9px !important;
+      }
+      .premium-card,
+      .work-card {
+        padding: 0.9rem !important;
+      }
+      #about .text-\[14\.4px\],
+      #about .text-\[15\.2px\] {
+        font-size: 13.8px;
+      }
+      .skill-pill {
+        font-size: 0.64rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      #experience li {
+        font-size: 0.86rem;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .metric {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .work-card {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                  border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      transition-property: transform, border-color;
+    }
+    
+    .work-card:hover {
+      transform: translateY(-3px);
+      border-color: #14b8a6;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: #111827 !important; }
+      .premium-card, .glass { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+      .section-title { color: #0f172a !important; }
+      a { color: #0f172a !important; }
+    }
+
+    .toast {
+      animation: toastPop 0.2s ease forwards;
+    }
+
+    @keyframes toastPop {
+      from { opacity: 0; transform: translateY(10px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
