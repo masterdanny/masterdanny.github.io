@@ -9,13 +9,13 @@
   <meta property="og:title" content="Daniele De Gregorio | Systems Engineer &amp; Physicist at KLA">
   <meta property="og:description" content="Systems Engineer at KLA. Electron-beam metrology expert with deep expertise in nanophotonics, machine learning for inverse design, and experimental particle physics. LMU Munich graduate and ACS Photonics author.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://masterdanny.github.io">
-  <meta property="og:image" content="{{ '/images/profile.jpg' | relative_url }}">
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:image" content="{{ '/images/profile.jpg' | absolute_url }}">
   <!-- Recommended: Replace with custom 1200×630 social preview image (see deployment instructions) -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Daniele De Gregorio | Systems Engineer &amp; Physicist">
   <meta name="twitter:description" content="Systems Engineer at KLA | Electron-beam metrology &amp; nanophotonics | LMU Munich &amp; ACS Photonics">
-  <link rel="canonical" href="https://masterdanny.github.io">
+  <link rel="canonical" href="{{ site.url }}">
   {% else %}
   {% seo %}
   {% endif %}
@@ -37,7 +37,7 @@
           - Update the `og:image` and Twitter image meta tags below
        5. git add index.html Daniele_De_Gregorio_CV.pdf images/profile.jpg images/social-preview.jpg
        6. Commit + push to main. GitHub Pages auto-deploys (Settings → Pages → Source: main / root).
-       7. Hard-refresh https://masterdanny.github.io after ~60s.
+       7. Hard-refresh https://danieledegregorio.dev after ~60s.
        Safe to delete css/, js/, and old images (hubble.jpg, austria.jpeg, msc.png) after verification.
        Update social links in footer if GitHub or X handle changes.
   -->
@@ -51,7 +51,7 @@
     - Add your domain in Plausible dashboard, then uncomment the script below.
   -->
   <!--
-  <script defer data-domain="masterdanny.github.io" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="danieledegregorio.dev" src="https://plausible.io/js/script.js"></script>
   -->
 
   {% if include.homepage %}
@@ -71,7 +71,7 @@
       "name": "LMU Munich"
     },
     "description": "Systems Engineer at KLA specializing in electron-beam metrology. Physicist with expertise in nanophotonics and machine learning for inverse design.",
-    "url": "https://masterdanny.github.io",
+    "url": "{{ site.url }}",
     "sameAs": [
       "https://github.com/masterdanny",
       "https://twitter.com/mrdegreg"
