@@ -1,0 +1,1 @@
+var e=`/memora/assets/sql-wasm-DfANybxk.wasm`;export{e as default};
